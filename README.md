@@ -139,6 +139,50 @@ The intended scope of `v0.1.0` is:
 - a deterministic router script
 - a minimal adoption guide for teams
 
+## Why execution-router?
+
+There are already good skill ecosystems and agent-skill formats on GitHub, including:
+
+- [openai/skills](https://github.com/openai/skills)
+- [anthropics/skills](https://github.com/anthropics/skills)
+- [vercel-labs/skills](https://github.com/vercel-labs/skills)
+- [GitHub Copilot agent skills documentation](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills)
+
+`execution-router` is different in scope.
+
+It is not mainly a skill catalog, a packaging format, or a collection of domain capabilities.
+It is a lightweight execution-governance layer for deciding what should happen before an agent is used.
+
+In practice, that means:
+
+- Not "which skill should we use?"
+- But "should this task use a rule, a script, a skill, or an agent at all?"
+
+### What makes it different
+
+- It treats `agent` as the last escalation layer, not the default engine.
+- It is designed to reduce token cost, not just expand assistant capability.
+- It gives teams a deterministic precheck with a router script.
+- It includes an intake template so agent escalation can be justified explicitly.
+- It encourages promotion of repeated agent work into scripts or skills.
+- It stays generic, so project-specific logic can live in consuming repositories.
+
+### Use execution-router when
+
+- your team is overusing agents for repeatable work
+- you want a shared policy for script-vs-skill-vs-agent decisions
+- you want successful agent workflows to become reusable assets
+- you need a small governance layer that works across projects
+
+### Do not use execution-router as
+
+- a replacement for domain-specific skills
+- a full agent framework
+- a project memory system
+- a business-specific workflow package
+
+It works best as a thin decision layer placed before your existing scripts, skills, and agents.
+
 ## Links
 
 - Architecture: `docs/architecture.md`
