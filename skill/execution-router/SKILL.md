@@ -18,9 +18,33 @@ Use this skill to choose the lightest useful execution mode:
 1. Start with the task goal and expected output.
 2. Check whether an existing rule, template, or config is already enough.
 3. If not, run `python scripts/task_router.py "<task description>" ...` when classification is unclear.
-4. If the result is `script`, automate the task.
-5. If the result is `skill`, package the reusable workflow and keep deterministic parts in scripts.
+4. If the result is `script`, generate a starter implementation with `python scripts/generate_script_stub.py "<script name>" ...`.
+5. If the result is `skill`, generate a reusable scaffold with `python scripts/create_skill_scaffold.py "<skill name>" --description "..."`.
 6. If the result is `agent`, write down the unresolved uncertainty before escalating.
+
+## Generators
+
+### Script Stubs
+
+Use `scripts/generate_script_stub.py` to create starter scripts under `generated/scripts/` by default.
+
+It currently supports:
+
+- `python`
+- `powershell`
+- `bash`
+
+### Skill Scaffolds
+
+Use `scripts/create_skill_scaffold.py` to create a starter skill under `generated/skills/` by default.
+
+The scaffold includes:
+
+- `SKILL.md`
+- `agents/openai.yaml`
+- `references/workflow.md`
+- `scripts/run_task.py`
+- `templates/task-intake.md`
 
 ## Use The Template
 

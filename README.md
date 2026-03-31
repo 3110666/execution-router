@@ -97,6 +97,8 @@ It is a good fit when you want to:
 
 - A reusable skill at `skill/execution-router/`
 - A deterministic task classifier script
+- A script stub generator
+- A skill scaffold generator
 - A task intake template for justifying agent escalation
 - Lightweight docs and examples for adoption
 
@@ -124,6 +126,18 @@ Run the router directly:
 
 ```powershell
 python skill/execution-router/scripts/task_router.py "Batch normalize API specs" --steps-fixed yes --repeatable yes --needs-judgment no --path-unclear no
+```
+
+Generate a starter script when the task should be automated:
+
+```powershell
+python skill/execution-router/scripts/generate_script_stub.py "Normalize API specs" --language python --summary "Normalize a repeatable API spec cleanup task" --step "Load the source files" --step "Normalize the content" --step "Write the updated files"
+```
+
+Generate a starter skill when the workflow is stable but still needs bounded judgment:
+
+```powershell
+python skill/execution-router/scripts/create_skill_scaffold.py "api-review" --description "Review API changes with a stable checklist and bounded judgment."
 ```
 
 Install the skill by copying `skill/execution-router/` into your Codex skills directory or another compatible skills location.
