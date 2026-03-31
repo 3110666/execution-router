@@ -1,0 +1,7 @@
+interface:
+  display_name: "Execution Router"
+  short_description: "Choose between rule/config, script, skill, and agent."
+  default_prompt: "Use $execution-router to decide the lightest execution mode for this task before using an agent."
+
+policy:
+  allow_implicit_invocation: false
